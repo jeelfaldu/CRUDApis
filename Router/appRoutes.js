@@ -8,7 +8,7 @@ var db = mongojs("mongodb+srv://jeel:6809@studentdata-tm21t.mongodb.net/student?
 //Defult path
 
 router.get('/', (req, res, next) => {
-    res.write("Started...");
+    res.write("Hailu");
     res.end();
 });
 router.get('/addnew', (req, res, next) => {
