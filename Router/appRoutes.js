@@ -13,6 +13,19 @@ router.get('/', (req, res, next) => {
 });
 router.get('/addnew', (req, res, next) => {
    console.log(req.body);
+    db.student.save({
+        "name": req.body,        
+    }, (err, data) => {
+        if (!err) {
+            res.status(200).json({
+                msg: "successfully added"
+            })
+        } else {
+            res.status(500).json({
+                msg: err
+            });
+        }
+    });
 });
 //get all record
 router.get('/display', (req, res, next) => {
