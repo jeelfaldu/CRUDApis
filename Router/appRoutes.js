@@ -11,7 +11,9 @@ router.get('/', (req, res, next) => {
     res.write("Started...");
     res.end();
 });
-
+router.get('/addnew', (req, res, next) => {
+   console.log(req.body);
+});
 //get all record
 router.get('/display', (req, res, next) => {
 
