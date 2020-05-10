@@ -14,8 +14,15 @@ router.get('/', (req, res, next) => {
 router.post('/addnew', (req, res, next) => {
    console.log(req.body);
     db.student.save({
-        "name": req.body.name,
-        "fb": req.body.fb
+        "_id": req.body.id,
+        "username": req.body.name,
+        "fbUrl": req.body.fb,
+        "snapid":req.body.snapid,
+        "wpnum":req.body.wp,
+        "ig":req.body.ig,
+        "linkedin":req.body.linkedin,
+        "mail":req.body.mail,
+        "pubg":req.body.pubg
     }, (err, data) => {
         if (!err) {
             res.status(200).json({
@@ -26,7 +33,7 @@ router.post('/addnew', (req, res, next) => {
                 msg: err
             });
         }
-    });
+    });:
 });
 //get all record
 router.get('/display', (req, res, next) => {
