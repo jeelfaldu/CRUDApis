@@ -36,7 +36,7 @@ router.post('/addnew', (req, res, next) => {
     });
 });
 router.get('/usredata/:id',(req,res,next) => {
-    db.student.find({_id:req.body.id},{}, (err, data) => {
+    db.student.find({_id:req.params.id.toString()},{}, (err, data) => {
         if (!err) {
             res.status(200).json({
                 msg: data
