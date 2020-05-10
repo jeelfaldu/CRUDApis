@@ -33,7 +33,7 @@ router.post('/addnew', (req, res, next) => {
                 msg: err
             });
         }
-    });:
+    });
 });
 //get all record
 router.get('/display', (req, res, next) => {
