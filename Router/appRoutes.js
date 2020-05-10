@@ -35,6 +35,19 @@ router.post('/addnew', (req, res, next) => {
         }
     });
 });
+router.get('/usredata/:id',(req,res,next) => {
+    db.student.find({_id:req.body.id},{}, (err, data) => {
+        if (!err) {
+            res.status(200).json({
+                msg: data
+            });
+        } else {
+            res.status(500).json({
+                msg: err
+            });
+        }
+    });
+});
 //get all record
 router.get('/display', (req, res, next) => {
 
