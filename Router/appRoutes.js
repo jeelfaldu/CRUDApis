@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
     res.write("Hailu");
     res.end();
 });
-router.get('/addnew', (req, res, next) => {
+router.post('/addnew', (req, res, next) => {
    console.log(req.body);
     db.student.save({
         "name": req.body,        
