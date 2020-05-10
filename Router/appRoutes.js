@@ -14,7 +14,8 @@ router.get('/', (req, res, next) => {
 router.post('/addnew', (req, res, next) => {
    console.log(req.body);
     db.student.save({
-        "name": req.body,        
+        "name": req.body.name,
+        "fb": req.body.fb
     }, (err, data) => {
         if (!err) {
             res.status(200).json({
