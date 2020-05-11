@@ -14,15 +14,7 @@ router.get('/', (req, res, next) => {
 router.post('/addnew', (req, res, next) => {
    console.log(req.body);
     db.student.save({
-        "_id": req.body.id,
-        "username": req.body.name,
-        "fbUrl": req.body.fb,
-        "snapid":req.body.snapid,
-        "wpnum":req.body.wp,
-        "ig":req.body.ig,
-        "linkedin":req.body.linkedin,
-        "mail":req.body.mail,
-        "pubg":req.body.pubg
+        "_id": req.body.id
     }, (err, data) => {
         if (!err) {
             res.status(200).json({
@@ -34,6 +26,36 @@ router.post('/addnew', (req, res, next) => {
             });
         }
     });
+});
+router.post('/updateprofile', (req, res, next) => {
+    console.log(req.body);
+    db.student.update({
+        "_id": req.body.id
+    }
+        , {
+            $set: {
+                "username": req.body.name,
+                "fbUrl": req.body.fb,
+                "snapid": req.body.snapid,
+                "wpnum": req.body.wp,
+                "ig": req.body.ig,
+                "tiktok": req.body.tiktok,
+                "linkedin": req.body.linkedin,
+                "mail": req.body.mail,
+                "pubg": req.body.pubg
+            }
+
+        }, (err, data) => {
+            if (!err) {
+                res.status(200).json({
+                    msg: "successfully added"
+                })
+            } else {
+                res.status(500).json({
+                    msg: err
+                });
+            }
+        });
 });
 router.get('/usredata/:id',(req,res,next) => {
     db.student.find({_id:req.params.id.toString()},{}, (err, data) => {
@@ -86,6 +108,7 @@ router.post('/addstud', (req, res) => {
         }
     });
 });
+
 
 //update record
 router.put('/update', (req, res) => {
